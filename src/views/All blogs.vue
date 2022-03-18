@@ -32,6 +32,29 @@
                 </div>
             </li>
         </ul>
+
+<div class="row" v-if="blogs">
+      <div v-for="(blogs, index) of blogs" :key="index.id">
+        <div class="card">
+          <img class="card-img-top" :src="blog.image" alt="blog practice" style="height: 300px;">
+      
+      <div class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 </template>
 
 <script>
@@ -40,7 +63,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 :root {
   --color-text: #2c3e50;
   --color-link: #3498db;

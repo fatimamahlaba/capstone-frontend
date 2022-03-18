@@ -8,28 +8,24 @@
       type="text"
       v-model="name"
       placeholder="Name"
-      autocomplete="off"
     />
     <input
       class="form-input border-input"
       type="email"
       v-model="email"
       placeholder="Email"
-      autocomplete="off"
     />
     <input
       class="form-input border-input"
       type="text"
       v-model="contact"
       placeholder="Contact Number"
-      autocomplete="off"
     />
     <input
       class="form-input border-input"
       type="password"
       v-model="password"
       placeholder="Password"
-      autocomplete="off"
     />
     <button type="submit" class="form-btn border">Register</button>
     <div>
@@ -50,7 +46,7 @@ export default {
   },
   methods: {
     register(){
-    fetch('https://pos-fj.herokuapp.com/users', {
+    fetch('https://capstone-final-backend.herokuapp.com/subscribers', {
   method: 'POST',
   body: JSON.stringify({
     name: this.name,
