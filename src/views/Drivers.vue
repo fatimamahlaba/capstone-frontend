@@ -1,81 +1,39 @@
 <template>
-  <div v-if="blogs">
-    <h2>Blogs</h2>
-    <div class="blogs-container" v-if="blogs">
-      <router-link
-        v-for="blog of blogs"
-        :key="blog._id"
-        :to="{ name: 'BlogDetails', params: { id: blog._id } }"
-      >
-        <img :src="blog.image" :alt="blog.title" />
-        {{ blog.author_name }}
-      </router-link>
+  <div class="container">
+    <div class="product" v-if="products">
+      <div v-for="(product, index) of products" :key="index.id">
+      <div class="product-card">
+        <h2 class="name">{{ title }}</h2>
+        <span class="price">{{ price }}</span>
+        <a class="popup-btn" >Quick View</a>
+        <img :src='product.img' class="product-img" alt="">
+      </div>
+      <div class="popup-view">
+        <div class="popup-card">
+          <a><i class="fas fa-times close-btn"></i></a>
+          <div class="product-img">
+            <img :src='product.img' alt="">
+          </div>
+          <div class="info">
+            <h2>{{ title }}</h2>
+            <p> {{ description }}</p>
+            <span class="price">{{ price }}</span>
+            <a href="#" class="add-cart-btn">Add to Cart</a>
+            <a href="#" class="add-wish">Add to Wishlist</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div v-else>Loading blogs...</div>
- 
+    </div>
+    </div>
 </template>
+
 <script>
 export default {
-  data() {
-    return {
-      blogs: null,
-    };
-  },
-  
-  mounted() {
-    if (localStorage.getItem("jwt")) {
-      fetch("http://localhost:3000/posts", {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          this.blogs = json;
-          console.log(json)
-          this.blogs.forEach(async (blog) => {
-            await fetch(
-              "http://localhost:3000/users/" + blog.user_id,
-              {
-                method: "GET",
-                headers: {
-                  "Content-type": "application/json; charset=UTF-8",
-                  Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-                },
-              }
-            )
-              .then((response) => response.json())
-              .then((json) => {
-                blog.author_name = json.name;
-              });
-          });
-        })
-        .catch((err) => {
-          alert("User not logged in");
-        });
-    } else {
-      alert("User not logged in");
-      this.$router.push({ name: "Home" });
-    }
-  },
-};
+
+}
 </script>
+
 <style>
-.blogs-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-inline: auto;
-  padding: 30px;
-  gap: 2%;
-  justify-content: stretch;
-  align-items: stretch;
-  flex-direction: column;
-}
-img {
-  max-width: 50vw;
-}
+
 </style>
