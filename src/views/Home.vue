@@ -69,16 +69,10 @@
   </button>
 </div>
  </div>
- <Profile />
-
-  
 </template>
 
 <script>
-import Profile from "./Profile.vue"
-export default {
-  components: { Profile }
-}
+
 </script>
 
 <style scoped>
@@ -105,4 +99,25 @@ export default {
   background: #000;
   opacity: 0.7;
 }
+a{
+  background-color: red;
+  color: white;
+  border-radius: 50px;
+  padding: 1.5rem 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  
+}
+button{
+  background: none;
+  border: none;
+}
+.carousel-caption h5{
+  font-size: 70px;
+  font-weight: 300;
+}
+.carousel-caption p{
+  font-size: 18px;
+}
+
 </style>

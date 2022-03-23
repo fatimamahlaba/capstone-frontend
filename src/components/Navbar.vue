@@ -127,5 +127,9 @@
     font-weight: normal;
     font-style: normal;
 } */
-/*  */
+a{
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
 </style>
