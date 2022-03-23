@@ -15,7 +15,7 @@
     />
     <button type="submit" class="form-btn border">Login</button>
     <div>
-      <p>Don't have an account? <router-link to="/signup" class="signup">Signup</router-link></p>
+      <p>Don't have an account? <router-link to="/register" class="register">Register</router-link></p>
     </div>
   </form>
 </template>
@@ -25,26 +25,27 @@ export default {
     return {
       email: "",
       password: "",
-      isLoggedIn: false
+      isLoggedIn: false,
     };
   },
   methods: {
   login(){
-    fetch('https://capstone-final-backend.herokuapp.com/subscribers', {
-     method: 'PATCH',
-     body: JSON.stringify({
+    const subscriber = {
       email: this.email,
       password: this.password,
-  }),
+  }
+    fetch('https://capstone-final-backend.herokuapp.com/subscribers', {
+     method: 'PATCH',
+     body: JSON.stringify(subscriber),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
-  },
+  }
 })
   .then((response) => response.json())
   .then((json) => {
    localStorage.setItem("jwt", json.jwt);
    alert("User logged in");
-   this.$router.push({ name: "All Posts"});
+   this.$router.push({ name: "All blogs"});
   })
   .catch((err) => {
     alert(err);

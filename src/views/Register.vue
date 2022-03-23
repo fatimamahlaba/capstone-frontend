@@ -47,19 +47,20 @@ export default {
   methods: {
     register(){
     fetch('https://capstone-final-backend.herokuapp.com/subscribers', {
-  method: 'POST',
-  body: JSON.stringify({
-    name: this.name,
-    email: this.email,
-    contact: this.contact,
-    password: this.password,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
+      method: 'POST',
+      body: JSON.stringify({
+        name: this.name,
+        email: this.email,
+        contact: this.contact,
+        password: this.password,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
   .then((response) => response.json())
   .then((json) => {
+    if(!json.jwt) return alert("Could not register")
    localStorage.setItem("jwt", json.jwt);
    alert("User is signed up");
    this.name='',
