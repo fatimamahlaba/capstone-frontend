@@ -25,7 +25,6 @@ export default {
     return {
       email: "",
       password: "",
-      isLoggedIn: false,
     };
   },
   methods: {

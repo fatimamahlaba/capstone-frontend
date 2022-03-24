@@ -22,7 +22,6 @@
    <button
             type="button"
             class="button btn-primary"
-            v-on:click="removeDriver(driver._id)"
           >
             Delete blog
           </button>
@@ -52,41 +51,22 @@
 
 <script>
 export default {
-  data() {
-    return {
-      blogs: [],
-      name: "",
-      number: "",
-      avatar: "",
-      content: "",
-    };
-  },
-  methods: {
-   
-    removeBlog(id) {
-      console.log(id);
-      fetch("http://capstone-final-backend.herokuapp.com/drivers" + id, {
-        method: "DELETE",
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        alert("Blog deleted successfully");
-      })
-      .catch((err) => {
-        alert(err);
-      });
-    },
-       },
-  mounted() {
-    fetch("http://capstone-final-backend.herokuapp.com/drivers")
-      .then((res) => res.json())
-      .then((data) => {
-        this.blogs = data;
-        console.log(data, this.blogs);
-      });
-  },
+// name: "Drivers",
+// data() {
+//   return { 
+//     drivers: [],
+//   };
+computed: {
+  drivers(){
+    return this.$store.state.drivers;
+  }
+},
+mounted() {  
+  // DISPATCH runs an ACTION
+  this.$store.dispatch('getDrivers')
+},
 };
+// };
 </script>
 
 <style>
