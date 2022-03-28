@@ -114,4 +114,7 @@ p{
   color: blue;
   border-bottom:1px solid blue ;
 }
+a{
+  color: red;
+}
 </style>

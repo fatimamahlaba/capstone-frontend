@@ -136,10 +136,10 @@ p{
 }
 .login {
   font-size: 25px;
-  color: blue;
+  color: red;
 }
 .login:hover{
-  color: blue;
+  color: white;
   border-bottom:1px solid blue ;
 }
 </style>

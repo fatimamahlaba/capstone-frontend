@@ -132,4 +132,10 @@ a{
     text-decoration: none;
     padding: 10px;
 }
+.active:hover,a.router-link-active{
+  border-bottom: 2px solid red;
+  padding: 0px ;
+  text-decoration: none;
+  box-shadow: none;
+}
 </style>

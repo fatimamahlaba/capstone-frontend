@@ -110,7 +110,8 @@ a{
 }
 button{
   background: none;
-  border: none;
+  border: none; 
+  padding: 10px;
 }
 .carousel-caption h5{
   font-size: 70px;
@@ -119,5 +120,7 @@ button{
 .carousel-caption p{
   font-size: 18px;
 }
-
+h5, p{
+  padding: 100px;
+}
 </style>
