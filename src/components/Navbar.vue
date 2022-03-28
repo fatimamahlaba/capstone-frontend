@@ -77,10 +77,10 @@
             Universities
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-             <li><a class="dropdown-item" href="/https://www.uct.ac.za/">UCT</a></li>
-             <li><a class="dropdown-item" href="/https://www.cput.ac.za/">CPUT</a></li>
-             <li><a class="dropdown-item" href="/https://www.uwc.ac.za/">UWC</a></li>
-             <li><a class="dropdown-item" href="/https://www.sun.ac.za/english">STELLIES</a></li>
+             <li><a class="dropdown-item" href="https://www.uct.ac.za/">UCT</a></li>
+             <li><a class="dropdown-item" href="https://www.cput.ac.za/">CPUT</a></li>
+             <li><a class="dropdown-item" href="https://www.uwc.ac.za/">UWC</a></li>
+             <li><a class="dropdown-item" href="https://www.sun.ac.za/english">STELLIES</a></li>
             </ul>
         </div>
         </ul>
