@@ -17,9 +17,18 @@ export default createStore ({
             .then((data) => {
                 // COMMIT runs a MUTATION
                 context.commit("setDrivers", data)
-                // console.log(this.drivers);
             });
         },
-    },
-    modules: {}
+        
+        remove(context, {id}) {
+            fetch("http://capstone-final-backend.herokuapp.com/drivers/" +id, {
+              method: "DELETE",
+            })
+            .then((response) => response.json())
+            .then((data) => {
+              alert("Blog deleted successfully");
+              context.commit("setDrivers", data)
+            })
+          },
+        }
 })
